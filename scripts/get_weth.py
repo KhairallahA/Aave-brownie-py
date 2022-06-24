@@ -8,7 +8,9 @@ def get_weth():
     # ABI
     # Address
     account = get_account()
-    weth = interface.WethInterface(config["networks"][network.show_active()]["weth_token"])
+    weth = interface.WethInterface(
+        config["networks"][network.show_active()]["weth_token"]
+    )
     tx = weth.deposit({"from": account, "value": 0.1 * 10**18})
     print("Received 0.1 WETH")
     return tx
